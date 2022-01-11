@@ -133,7 +133,7 @@ def get_readable_message():
             msg += f"<b>Filename:</b> <code>{download.name()}</code>"
             msg += f"\n\n<b>{download.status()}</b>"
             if download.status() != MirrorStatus.STATUS_ARCHIVING and download.status() != MirrorStatus.STATUS_EXTRACTING and download.status() != MirrorStatus.STATUS_SPLITTING and download.status() != MirrorStatus.STATUS_SEEDING:
-                msg += f"\n{get_progress_bar_string(download)} {download.progress()}"
+                msg += f"\n\n{get_progress_bar_string(download)} {download.progress()}"
                 if download.status() == MirrorStatus.STATUS_UPLOADING:
                     msg += f"\n\n<b>✅ Uploaded:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
                 elif download.status() == MirrorStatus.STATUS_CLONING:
@@ -144,25 +144,25 @@ def get_readable_message():
                         f"\n\n<b>⏰ Time Left:</b> {download.eta()} "
                 # if hasattr(download, 'is_torrent'):
                 try:
-                    msg += f"\n\n<b>Seeders:</b> {download.aria_download().num_seeders}" \
+                    msg += f"\n\n<b>🌱 Seeders:</b> {download.aria_download().num_seeders}" \
                         f" | <b>Peers:</b> {download.aria_download().connections}"
                 except:
                     pass
                     try:
-                        msg += f"\n\n<b>Seeders:</b> {download.torrent_info().num_seeds}" \
+                        msg += f"\n\n<b>🌱 Seeders:</b> {download.torrent_info().num_seeds}" \
                             f" | <b>Leechers:</b> {download.torrent_info().num_leechs}"
                     except:
                         pass
                 msg += f''
-                msg += f"\n\n<b>🚫 To Stop:</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>"
+                msg += f"\n\n<b>⛔ To Stop:</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>"
             elif download.status() == MirrorStatus.STATUS_SEEDING:
                 msg += f"\n\n<b>Size: </b>{download.size()}"
                 msg += f"\n\n<b>🚀 Speed: </b>{get_readable_file_size(download.torrent_info().upspeed)}/s"
-                msg += f" | <b>✅ Done: </b>{get_readable_file_size(download.torrent_info().uploaded)}"
+                msg += f" | <b>✅ Uploaded: </b>{get_readable_file_size(download.torrent_info().uploaded)}"
                 msg += f"\n\n<b>Ratio: </b>{round(download.torrent_info().ratio, 3)}"
                 msg += f" | <b>Time: </b>{get_readable_time(download.torrent_info().seeding_time)}"
                 msg += f''
-                msg += f"\n\n<b>🚫 To Stop:</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>"
+                msg += f"\n\n<b>⛔ To Stop:</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>"
             msg += "\n\n"
         return msg    
 
