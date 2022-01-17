@@ -1,6 +1,8 @@
 # What's Different in this fork?!
 
-Simpler Mirroring Massage 👇
+1. Added Renaming tips button in the help message.
+
+2. Simpler/cleaner Mirroring Massage 👇
 
 [![New Mirroring Massage](https://telegra.ph/file/eace7633a5fb6f94833db.jpg)](https://t.me/MMETMA)
 
