@@ -176,9 +176,10 @@ def bot_help(update, context):
             title='Harsh Mirror Help',
             content=help_string_telegraph,
         )["path"]
-    button = button_build.ButtonMaker()
-    button.buildbutton("All Other Commands", f"https://telegra.ph/{help}")
-    reply_markup = InlineKeyboardMarkup(button.build_menu(1))
+    buttons = button_build.ButtonMaker()
+    buttons.buildbutton("All Other Commands", f"https://telegra.ph/{help}")
+    buttons.buildbutton("Renaming Tips", "https://telegra.ph/Magneto-Python-Aria---Custom-Filename-Examples-01-20")
+    reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
     sendMarkup(help_string, context.bot, update, reply_markup)
 ''''''    
 
