@@ -23,7 +23,7 @@ class _BotCommands:
         self.WatchCommand = "watch"
         self.ZipWatchCommand = "zipwatch"
         self.TarWatchCommand = "tarwatch"
-        self.deleteCommand = "del"
+        self.DeleteCommand = "del"
         self.LeechSetCommand = 'leechset'
         self.SetThumbCommand = 'setthumb'
         self.LeechCommand = 'leech'
